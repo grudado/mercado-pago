@@ -109,15 +109,17 @@ class ConfigProviderCheckoutCredits extends ConfigProviderCheckoutPro implements
      */
     public function getConfig()
     {
-        $storeId = $this->cart->getStoreId();
-        $isActive = $this->config->isActive($storeId);
-        $activeMethod = $this->isActive();
-
-        if (!$isActive || !$activeMethod) {
+//        $storeId = $this->cart->getStoreId();
+//        $isActive = $this->config->isActive($storeId);
+//        $activeMethod = $this->isActive();
+//        if (!$isActive || !$activeMethod) {
             return [];
-        }
+//         }
+/*        if (!$isActive || !$activeMethod) {
+            return [];
+        }*/
 
-        return [
+/*        return [
             'payment' => [
                 ConfigCheckoutCredits::METHOD => [
                     'isActive'              => $isActive,
@@ -130,7 +132,7 @@ class ConfigProviderCheckoutCredits extends ConfigProviderCheckoutPro implements
                     'texts'                 => $this->getBannerTexts($storeId),
                 ],
             ],
-        ];
+        ];*/
     }
 
     /**
@@ -179,7 +181,7 @@ class ConfigProviderCheckoutCredits extends ConfigProviderCheckoutPro implements
 
     /**
      * Get images for payment method banner.
-     * 
+     *
      * @return array
      */
     public function getImages()
@@ -197,7 +199,7 @@ class ConfigProviderCheckoutCredits extends ConfigProviderCheckoutPro implements
 
     /**
      * Get images for payment method banner.
-     * 
+     *
      * @return array
      */
     public function getImagesByName($name)

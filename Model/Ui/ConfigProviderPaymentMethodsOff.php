@@ -135,16 +135,25 @@ class ConfigProviderPaymentMethodsOff implements ConfigProviderInterface
      */
     public function getPaymentMethodsOffActive($storeId)
     {
-        $methodsOffActive = $this->config->getPaymentMethodsOffActive($storeId);
+//        $methodsOffActive = $this->config->getPaymentMethodsOffActive($storeId);
 
         $options = [];
-        $payments = $this->mercadopagoConfig->getMpPaymentMethods($storeId);
-
-        if ($payments['success'] === true && isset($payments['response'])) {
-            $options = $this->mountPaymentMethodsOff($payments['response']);
-        }
-
-        return $this->filterPaymentMethodsOffConfigActive($options, $methodsOffActive);
+        // $payments = $this->mercadopagoConfig->getMpPaymentMethods($storeId);
+        // Add this new variable
+        $boleto = [
+            [
+                "value" => "bolbradesco",
+                "label" => "Boleto",
+                "logo" => "https://http2.mlstatic.com/storage/logos-api-admin/00174300-571e-11e8-8364-bff51f08d440-xl.png",
+                "payment_method_id" => "bolbradesco",
+                "payment_type_id" => "ticket"
+            ]
+        ];
+//        if ($payments['success'] === true && isset($payments['response'])) {
+//            $options = $this->mountPaymentMethodsOff($payments['response']);
+//        }
+//        $teste = $this->filterPaymentMethodsOffConfigActive($options, $methodsOffActive);
+        return $boleto;
     }
 
 
